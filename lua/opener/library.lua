@@ -1,6 +1,7 @@
-local CDLens = {}
+local Opener = {}
 
-function CDLens.Clear()
+function Opener.Clear()
+
     local status_ok, _ = pcall(vim.cmd, "wa")
     if not status_ok then
         print("Please save all open buffers.")
@@ -18,11 +19,11 @@ function CDLens.Clear()
     end
 end
 
-function CDLens.CD(dir)
-    ClearVim()
+function Opener.Open(dir)
+    Opener.Clear()
     vim.cmd("cd " .. dir)
     -- TODO show intro
     -- vim.api.nvim_exec("intro", false)
 end
 
-return CDLens
+return Opener
