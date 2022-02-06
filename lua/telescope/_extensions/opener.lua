@@ -73,7 +73,6 @@ local function action(prompt_bufnr)
         actions.close(prompt_bufnr)
         local dir = selection[1];
         lib.open(dir)
-        vim.cmd [[ NERDTree ]]
     end
 end
 

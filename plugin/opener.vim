@@ -3,8 +3,8 @@ if exists('g:loaded_opener') | finish | endif
 let s:save_cpo = &cpo 
 set cpo&vim          
 
-let LuaClear = luaeval('require("opener").clear')
-let LuaOpen = luaeval('require("opener").open')
+let LuaClear = luaeval('require("opener.lib").clear')
+let LuaOpen = luaeval('require("opener.lib").open')
 
 command! -nargs=0 Clear call LuaClear()
 command! -nargs=1 -complete=dir Open call LuaOpen(expand('<args>'))

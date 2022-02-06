@@ -1,1 +1,3 @@
-return require("opener.lib")
+local M = {}
+M.setup = require("opener.setup").setup
+return M
