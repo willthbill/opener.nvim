@@ -69,7 +69,7 @@ end
 
 local function action(prompt_bufnr)
     local selection = action_state.get_selected_entry()
-    if selection then -- selection is sometimes NIL
+    if selection then -- TODO selection is sometimes NIL, why is that? It seems to be when the async job is running, or when you are searching in telescope
         actions.close(prompt_bufnr)
         local dir = selection[1];
         lib.open(dir)

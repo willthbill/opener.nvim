@@ -12,12 +12,12 @@ local function fix_hooks(key)
     end
     for idx, cmd in ipairs(M.user_config[key]) do
         if type(cmd) == "string" then
-            M.user_config[key][idx] = function() vim.cmd(cmd) end
+            M.user_config[key][idx] = function(dir) vim.cmd(cmd) end
         elseif type(cmd) == "function" then
             M.user_config[key][idx] = cmd
         else
             print("(opener.nvim) " .. type(cmd) .. " is an invalid type for " .. key)
-            M.user_config[key][idx] = function()end
+            M.user_config[key][idx] = function(dir)end
         end
     end
 end

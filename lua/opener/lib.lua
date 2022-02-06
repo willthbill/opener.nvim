@@ -52,14 +52,14 @@ function opener.open(dir)
     -- At this point everything should run without errors
     -- Run pre_open hooks
     for _, f in ipairs(user_config.pre_open) do
-        f()
+        f(dir)
     end
 
     opener.raw_open(dir)
 
     -- Run post_open hooks
     for _, f in ipairs(user_config.post_open) do
-        f()
+        f(dir)
     end
 end
 
