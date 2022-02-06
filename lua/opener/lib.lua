@@ -1,6 +1,6 @@
-local Opener = {}
+local opener = {}
 
-function Opener.Clear()
+function opener.clear()
 
     local status_ok, _ = pcall(vim.cmd, "wa")
     if not status_ok then
@@ -8,7 +8,7 @@ function Opener.Clear()
         return
     end
 
-    local status_ok, _ = pcall(vim.cmd, [[
+    status_ok, _ = pcall(vim.cmd, [[
         bufdo bwipeout
         silent only
         silent tabonly
@@ -19,11 +19,11 @@ function Opener.Clear()
     end
 end
 
-function Opener.Open(dir)
-    Opener.Clear()
+function opener.open(dir)
+    opener.clear()
     vim.cmd("cd " .. dir)
     -- TODO show intro
     -- vim.api.nvim_exec("intro", false)
 end
 
-return Opener
+return opener

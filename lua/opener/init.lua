@@ -1,1 +1,1 @@
-return require("opener.library")
+return require("opener.lib")
