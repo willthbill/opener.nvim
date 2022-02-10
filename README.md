@@ -2,7 +2,7 @@
 
 Open directories and reset the neovim instance (like in vscode and other editors). This is especially useful for neovim-GUI's such as [neovide](https://github.com/neovide/neovide), which you may not want to restart.
 
-![Preview](opener.gif)
+![Preview](opener-min.gif)
 
 ## 📦 Installation
 [Telescope](https://github.com/nvim-telescope/telescope.nvim) is an optional, but a recommended dependency. I also recommend installing [fd](https://github.com/sharkdp/fd), but it is not required.
