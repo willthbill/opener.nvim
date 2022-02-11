@@ -2,7 +2,7 @@ local user_config = require("opener.setup").user_config
 
 local opener = {}
 
-function opener.clear()
+local function raw_clear()
 
     local status_ok, _ = pcall(vim.cmd, "wa")
     if not status_ok then
@@ -21,10 +21,21 @@ function opener.clear()
 
 end
 
--- does not respect user configuration (hooks)
-function opener.raw_open(dir)
+function opener.clear()
 
-    opener.clear()
+    local status_ok, _ = pcall(vim.cmd, "wa")
+    if not status_ok then
+        print("Please save all open buffers.")
+        return
+    end
+
+    raw_clear()
+end
+
+-- does not respect user configuration (hooks)
+local function raw_open(dir)
+
+    raw_clear()
 
     local status_ok, _ = pcall(vim.cmd, "cd " .. dir)
     if not status_ok then
@@ -55,7 +66,7 @@ function opener.open(dir)
         f(dir)
     end
 
-    opener.raw_open(dir)
+    raw_open(dir)
 
     -- Run post_open hooks
     for _, f in ipairs(user_config.post_open) do
