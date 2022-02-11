@@ -25,7 +25,7 @@ function opener.clear()
 
     local status_ok, _ = pcall(vim.cmd, "wa")
     if not status_ok then
-        print("Please save all open buffers.")
+        print("Please save all open buffers.\n")
         return
     end
 
@@ -50,13 +50,13 @@ end
 function opener.open(dir)
 
     if vim.fn.isdirectory(dir) == 0 then
-        print("Directory does not exist.")
+        print("Directory does not exist.\n")
         return
     end
 
     local status_ok, _ = pcall(vim.cmd, "wa")
     if not status_ok then
-        print("Please save all open buffers.")
+        print("Please save all open buffers.\n")
         return
     end
 
