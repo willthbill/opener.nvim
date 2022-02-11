@@ -11,7 +11,7 @@ function opener.clear()
     end
 
     status_ok, _ = pcall(vim.cmd, [[
-        bufdo bwipeout
+        silent bufdo bdelete
         silent only
         silent tabonly
     ]])
