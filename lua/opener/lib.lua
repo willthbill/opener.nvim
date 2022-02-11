@@ -2,6 +2,10 @@ local user_config = require("opener.setup").user_config
 
 local opener = {}
 
+local function clear_lsp()
+    vim.lsp.stop_client(vim.lsp.get_active_clients())
+end
+
 function opener.clear()
 
     local status_ok, _ = pcall(vim.cmd, "wa")
@@ -9,6 +13,8 @@ function opener.clear()
         error("(opener.nvim) open buffers are not saved or empty.")
         return
     end
+
+    clear_lsp() -- TODO this gives problems with auto-session
 
     status_ok, _ = pcall(vim.cmd, [[
         silent bufdo bdelete
