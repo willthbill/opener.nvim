@@ -2,6 +2,8 @@
 
 A workspace/context switcher for neovim. It allows you to **open directories / folders** and reset the neovim instance (like in vscode and other editors). This is especially useful for neovim-GUI's such as [neovide](https://github.com/neovide/neovide), which you may not want to restart.
 
+For quick questions feel free to ask on [reddit](https://www.reddit.com/r/neovim/comments/sp4bva/my_first_neovim_plugin_openernvim_quickly_open/).
+
 ![Preview](opener-min.gif)
 
 ## 📦 Installation
