@@ -77,7 +77,7 @@ local function action(prompt_bufnr)
         -- https://github.com/nvim-telescope/telescope.nvim/issues/699
         vim.defer_fn(function ()
             lib.open(dir)
-        end, 100)
+        end, 50)
     end
 end
 
