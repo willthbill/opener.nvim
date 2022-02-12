@@ -72,7 +72,12 @@ local function action(prompt_bufnr)
     if selection then -- TODO selection is sometimes NIL, why is that? It seems to be when the async job is running, or when you are searching in telescope
         actions.close(prompt_bufnr)
         local dir = selection[1];
-        lib.open(dir)
+        -- add a tiny delay before opening directory, since telescope has problems
+        -- when doing things before it is properly closed. For example:
+        -- https://github.com/nvim-telescope/telescope.nvim/issues/699
+        vim.defer_fn(function ()
+            lib.open(dir)
+        end, 100)
     end
 end
 
